@@ -9,4 +9,10 @@ public class Square : MonoBehaviour
     {
         _rigidBody = GetComponent<Rigidbody2D>();
     }
+
+    public void ResetPostion()
+    {
+        _rigidBody.position = new Vector2(_rigidBody.position.x, 0.0f);
+        _rigidBody.linearVelocity = Vector2.zero;
+    }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Ball : MonoBehaviour
 {
@@ -11,10 +12,11 @@ public class Ball : MonoBehaviour
     }
     private void Start()
     {
+        ResetPosition();
         AddStartingForce();
     }
 
-    private void AddStartingForce()
+    public void AddStartingForce()
     {
         float x = Random.value < 0.5f ? -1.0f : 1.0f;
         float y = Random.value < 0.5f ? Random.Range(-1.0f, -0.5f) : Random.Range(0.5f, 1 - 0f);
@@ -26,5 +28,11 @@ public class Ball : MonoBehaviour
     public void AddForce(Vector2 force)
     {
         _rigidBody.AddForce(force);
+    }
+
+    public void ResetPosition()
+    {
+        _rigidBody.position = Vector3.zero;
+        _rigidBody.linearVelocity = Vector3.zero;
     }
 }
